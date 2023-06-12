@@ -1,13 +1,9 @@
 local module = {}
-local camera = workspace.CurrentCamera
 
+local camera = workspace.CurrentCamera
 local screenSizeX = camera.ViewportSize.X
 local screenSizeY = camera.ViewportSize.Y
 
-local function screenToWorld(screenX, screenY, depth)
-	local worldPosition = camera.CFrame:PointToWorldSpace(Vector3.new(screenX,((screenSizeY/2)*0.0009) + screenY,depth))
-	return worldPosition
-end
 local offset = 0.28
 local scale = 0.000182908 * (2160 / camera.ViewportSize.Y)
 local blurscaleoffset = Vector2.new(-22 * scale, -22 * scale)
@@ -29,14 +25,15 @@ function module.new(ui)
 	p.Size = Vector3.new(.01,.01,0)
 	p.Transparency = 0.5
 	p.Material = Enum.Material.Glass
-
-	local carage = game:GetService("RunService").PreRender:Connect(function()
-		local pos = screenToWorld(0,0,.5)
-		local a = {
+local a = {
 			p,
 			Vector3.new(),
 			ui
 		}
+	local carage = game:GetService("RunService").RenderStepped:Connect(function()
+		camera = workspace.CurrentCamera
+		local scale = 0.000182908 * (2160 / camera.ViewportSize.Y)
+local blurscaleoffset = Vector2.new(-22 * scale, -22 * scale)
 		local NewSize = Vector2.new(
 			a[3].AbsoluteSize.X * scale,
 			a[3].AbsoluteSize.Y * scale
