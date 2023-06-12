@@ -7,13 +7,14 @@ local DepthOfField = Instance.new('DepthOfFieldEffect', game:GetService('Lightin
 	DepthOfField.InFocusRadius = 50
 	DepthOfField.NearIntensity = 1
 	DepthOfField.Name = "RBXUiBlur"
+local id = 0
 function mod.new(ui)
 	local RunService = game:GetService('RunService')
 	local camera = workspace.CurrentCamera
 	local MTREL = "Glass"
 	local binds = {}
 	local root = Instance.new('Folder', camera)
-	root.Name = 'BlurSnox'
+	root.Name = 'BlurUI'
 
 	local gTokenMH = 99999999
 	local gToken = math.random(1, gTokenMH)
@@ -28,7 +29,7 @@ function mod.new(ui)
 	frame.BackgroundTransparency = 1
 
 	local GenUid; do -- Generate unique names for RenderStepped bindings
-		local id = 0
+		
 		function GenUid()
 			id = id + 1
 			return 'neon::'..tostring(id)
