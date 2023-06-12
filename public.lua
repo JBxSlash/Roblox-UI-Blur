@@ -188,6 +188,12 @@ function mod.new(ui)
 	end
 
 	UpdateOrientation(true)
-	RunService:BindToRenderStep(uid, 2000, UpdateOrientation)
+	local br = RunService:BindToRenderStep(uid, 2000, UpdateOrientation)
+	local i = {}
+	function i:Destroy()
+		RunService:UnbindFromRenderStep(uid)
+		frame:Destroy()
+	end
+	return i
 end
 return mod
