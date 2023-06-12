@@ -24,6 +24,7 @@ function module.new(ui)
 	p.Name = "UIBlurHub | ".. tostring(ui.Name)
 	p.Size = Vector3.new(.01,.01,0)
 	p.Transparency = 0.5
+	p.Color = Color3.fromRGB(255,255,255)
 	p.Material = Enum.Material.Glass
 local a = {
 			p,
