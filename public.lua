@@ -207,6 +207,7 @@ function mod.new(ui)
 	function i:Destroy()
 		RunService:UnbindFromRenderStep(uid)
 		frame:Destroy()
+		root:Destroy()
 	end
 	return i
 end
