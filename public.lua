@@ -146,10 +146,23 @@ function mod.new(ui)
 	end
 
 	local function UpdateOrientation(fetchProps)
+		local allowed = {
+			Enum.SavedQualitySetting.QualityLevel8,
+			Enum.SavedQualitySetting.QualityLevel9,
+			Enum.SavedQualitySetting.QualityLevel10,
+		}
+		local graphics = UserSettings():GetService("UserGameSettings").SavedQualityLevel
+		
 		local properties = {
 			Transparency = 0.98;
 			BrickColor = BrickColor.new('Institutional white');
 		}
+		if not table.find(allowed,graphics) then
+			properties = {
+				Transparency = 1;
+				BrickColor = BrickColor.new('Institutional white');
+			}
+		end
 		local zIndex = 1 - 0.05*frame.ZIndex
 
 		local tl, br = frame.AbsolutePosition, frame.AbsolutePosition + frame.AbsoluteSize
