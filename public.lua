@@ -166,6 +166,11 @@ function mod.new(ui)
 				Transparency = 1;
 				BrickColor = BrickColor.new('Institutional white');
 			}
+		else
+			properties = {
+				Transparency = 0.98;
+				BrickColor = BrickColor.new('Institutional white');
+			}
 		end
 		local zIndex = 1 - 0.05*frame.ZIndex
 
