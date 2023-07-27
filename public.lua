@@ -3,7 +3,7 @@
 local mod = {}
 local DepthOfField = Instance.new('DepthOfFieldEffect', game:GetService('Lighting'))
 	DepthOfField.FarIntensity = 0
-	DepthOfField.FocusDistance = 10
+	DepthOfField.FocusDistance = 1
 	DepthOfField.InFocusRadius = 50
 	DepthOfField.NearIntensity = 1
 	DepthOfField.Name = "RBXUiBlur"
