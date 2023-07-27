@@ -11,6 +11,7 @@ local id = 0
 local isenabled = true
 function mod:Set(f)
 	isenabled = f
+	DepthOfField.Enabled = f
 end
 function mod.new(ui)
 	local RunService = game:GetService('RunService')
@@ -161,7 +162,7 @@ function mod.new(ui)
 			Transparency = 0.98;
 			BrickColor = BrickColor.new('Institutional white');
 		}
-		if not isenabled then
+		if table.find(allowed,graphics) or not isenabled then
 			properties = {
 				Transparency = 1;
 				BrickColor = BrickColor.new('Institutional white');
