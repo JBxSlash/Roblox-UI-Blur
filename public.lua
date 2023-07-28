@@ -162,7 +162,7 @@ function mod.new(ui)
 			Transparency = 0.98;
 			BrickColor = BrickColor.new('Institutional white');
 		}
-		if table.find(allowed,graphics) or not isenabled then
+		if not table.find(allowed,graphics) or not isenabled then
 			properties = {
 				Transparency = 1;
 				BrickColor = BrickColor.new('Institutional white');
